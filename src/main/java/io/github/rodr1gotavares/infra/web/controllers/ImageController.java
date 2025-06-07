@@ -3,6 +3,7 @@ package io.github.rodr1gotavares.infra.web.controllers;
 import java.io.IOException;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,8 @@ public class ImageController {
 	public ImageController(PorcessImageUseCase porcessImageUseCase) {
 		this.porcessImageUseCase = porcessImageUseCase;
 	}
-	
+
+	@PostMapping("/upload")
 	public ResponseEntity<?> postImage(@RequestParam("file") MultipartFile imageFile) throws IOException, InterruptedException {
 		byte[] imageFileInBytes = imageFile.getBytes();
 		String latexResult = this.porcessImageUseCase.exec(imageFileInBytes);
