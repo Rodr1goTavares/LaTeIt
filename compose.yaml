@@ -1,0 +1,39 @@
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: lateit-database
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: lateit-db
+      POSTGRES_USER: ${SPRING_DATASOURCE_USERNAME}
+      POSTGRES_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - lateit-network
+
+  lateit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lateit-app
+    #restart: on-failure
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    networks:
+      - lateit-network
+
+volumes:
+  postgres-data:
+
+networks:
+  lateit-network:
