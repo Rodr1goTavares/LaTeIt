@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+## Local test properties file ##
+!**/src/main/resources/application-test.yaml
+
+.env
+!.env.exemple
