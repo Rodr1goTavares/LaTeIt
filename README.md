@@ -1,4 +1,4 @@
-# Pix2TeX Web API
+# LaTeIt Web API
 
 <!-- ![Pix2TeX Banner](https://latex.ai/static/media/logo.429eaad5.svg) -->
 
