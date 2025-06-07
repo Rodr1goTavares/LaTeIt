@@ -83,21 +83,6 @@ docker compose up --build
 
 ---
 
-## 📚 Powered by
-
-* [Spring Boot](https://spring.io/projects/spring-boot)
-* [pix2tex](https://github.com/lukas-blecher/LaTeX-OCR)
-* [Docker](https://www.docker.com/)
-* \[Tailwind CSS + Mustache (if frontend is used)]
-
----
-
-## 🧑‍💻 Author
-
-Made with ❤️ by [Your Name](https://github.com/your-username)
-
----
-
 ## 📜 License
 
 MIT License. This project uses the open-source [pix2tex model](https://github.com/lukas-blecher/LaTeX-OCR), licensed under GPLv3. This repository does not modify or bundle the model directly.
