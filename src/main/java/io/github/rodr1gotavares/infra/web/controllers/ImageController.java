@@ -13,14 +13,11 @@ import io.github.rodr1gotavares.core.usecases.PorcessImageUseCase;
 @RestController
 @RequestMapping("/image")
 public class ImageController {
-
-    private final ImageProcessor imageProcessor;
 	
 	private final PorcessImageUseCase porcessImageUseCase;
 	
-	public ImageController(PorcessImageUseCase porcessImageUseCase, ImageProcessor imageProcessor) {
+	public ImageController(PorcessImageUseCase porcessImageUseCase) {
 		this.porcessImageUseCase = porcessImageUseCase;
-		this.imageProcessor = imageProcessor;
 	}
 	
 	public ResponseEntity<?> postImage(@RequestParam("file") MultipartFile imageFile) throws IOException, InterruptedException {

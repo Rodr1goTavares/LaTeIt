@@ -10,23 +10,23 @@ spring:
     port: 8080
     host: localhost
     cors:
-      allowed-origins: ${SERVER_CORS_ALLOWED_ORIGINS}
+      allowed-origins: http://localhost:3000
 
   jpa:
     hibernate:
-      ddl-auto: ${SPRING_JPA_DDL_AUTO}
+      ddl-auto: update
     properties:
       hibernate:
         id:
-          new_generator_mappings: ${SPRING_JPA_GENERATOR_MAPPINGS}
-    database-platform: ${SPRING_JPA_DIALECT}
+          new_generator_mappings: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    driver-class-name: ${SPRING_DATASOURCE_DRIVER}
+    url: jdbc:postgresql://postgres:5432/lateit-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
 
   service:
-    image-processor-url: ${SPRING_SERVICE_IMAGE_PROCESSOR_URL}
-    image-processor-key: ${SPRING_SERVICE_IMAGE_PROCESSOR_API_KEY}
+    image-processor-url: http://localhost:8502/predict
+    image-processor-key: image-processor-api-key-if-necessary
