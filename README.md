@@ -1,6 +1,6 @@
 # Pix2TeX Web API
 
-![Pix2TeX Banner](https://latex.ai/static/media/logo.429eaad5.svg)
+<!-- ![Pix2TeX Banner](https://latex.ai/static/media/logo.429eaad5.svg) -->
 
 A simple and clean web application that provides an API for converting images of mathematical expressions into LaTeX code. This service **acts as a web interface** for the open-source [pix2tex](https://github.com/lukas-blecher/LaTeX-OCR) model.
 
