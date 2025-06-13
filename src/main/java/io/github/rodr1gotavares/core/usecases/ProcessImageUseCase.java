@@ -4,11 +4,14 @@ import java.io.IOException;
 
 import io.github.rodr1gotavares.core.ports.ImageProcessor;
 
-public class PorcessImageUseCase {
+/**
+ * @author Rodr1goTavares - <a href="https://github.com/Rodr1goTavares">GitHub</a>
+ */
+public class ProcessImageUseCase {
 	
 	private final ImageProcessor imageProcessor;
 	
-	public PorcessImageUseCase(ImageProcessor imageProcessor) {
+	public ProcessImageUseCase(ImageProcessor imageProcessor) {
 		this.imageProcessor = imageProcessor;
 	}
 	

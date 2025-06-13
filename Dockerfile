@@ -1,12 +1,18 @@
-# Stage 1: Build using Gradle
-FROM gradle:8.3-jdk-alpine AS build
+# Stage 1: Build
+FROM eclipse-temurin:21-jdk-alpine AS build
 
 WORKDIR /app
 
-COPY build.gradle settings.gradle ./
+COPY gradlew build.gradle settings.gradle ./
+COPY gradle ./gradle
+
 COPY src ./src
 
-RUN gradle clean build --no-daemon
+COPY .env .env
+
+RUN chmod +x ./gradlew
+
+RUN ./gradlew clean build -x test --no-daemon --stacktrace
 
 # Stage 2: Runtime
 FROM eclipse-temurin:21-jdk-alpine
@@ -18,3 +24,5 @@ COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+

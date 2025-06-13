@@ -5,15 +5,18 @@ import java.time.Instant;
 
 import org.springframework.http.HttpStatus;
 
-public record ApiResponse<T>(
+/**
+ * @author Rodr1goTavares - <a href="https://github.com/Rodr1goTavares">GitHub</a>
+ */
+public record ApiResponseFactory<T>(
 	    Instant timestamp,
 	    int status,
 	    String error,
 	    String message,
 	    T data
 	) {
-	    public static <T> ApiResponse<T> ok(HttpStatus status, T data) {
-	        return new ApiResponse<>(
+	    public static <T> ApiResponseFactory<T> ok(HttpStatus status, T data) {
+	        return new ApiResponseFactory<>(
 	            Instant.now(),
 	            status.value(),
 	            status.getReasonPhrase(),
@@ -22,8 +25,8 @@ public record ApiResponse<T>(
 	        );
 	    }
 
-	    public static ApiResponse<Void> error(HttpStatus status, String message) {
-	    	return new ApiResponse<>(
+	    public static ApiResponseFactory<Void> error(HttpStatus status, String message) {
+	    	return new ApiResponseFactory<>(
 		            Instant.now(),
 		            status.value(),
 		            status.getReasonPhrase(),
